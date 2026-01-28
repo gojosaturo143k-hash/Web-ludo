@@ -16,21 +16,19 @@ for (let i = 0; i <= 57; i++) {
   board.appendChild(cell);
 }
 
-/* 🎨 RENDER TOKENS (SINGLE TOKEN PER PLAYER) */
+/* 🎨 RENDER TOKENS */
 function render(positions) {
   // clear old tokens
   document.querySelectorAll(".token").forEach(t => t.remove());
 
   for (const p in positions) {
     const pos = positions[p];
-    if (pos < 0) continue;
-
     const cell = document.getElementById(`cell-${pos}`);
     if (!cell) continue;
 
     const token = document.createElement("div");
     token.className = "token";
-    token.title = p; // hover name
+    token.title = p;
     cell.appendChild(token);
   }
 }
@@ -48,10 +46,21 @@ ws.onopen = () => {
 ws.onmessage = (event) => {
   const data = JSON.parse(event.data);
 
+  // 👥 PLAYER COUNT UPDATE  ✅ (YE MISS THA)
+  if (data.type === "players") {
+    if (data.count >= 2) {
+      statusEl.innerText = "Game started 🎮";
+    } else {
+      statusEl.innerText = "Waiting for players...";
+    }
+  }
+
+  // ℹ️ INFO MESSAGE
   if (data.type === "info") {
     statusEl.innerText = data.msg;
   }
 
+  // 🎲 DICE RESULT
   if (data.type === "dice") {
     lastDice = data.dice;
 
@@ -61,6 +70,7 @@ ws.onmessage = (event) => {
     render(data.positions); // 👈 BOARD UPDATE
   }
 
+  // 👑 WIN
   if (data.type === "win") {
     alert(`🏆 ${data.player} WON THE GAME!`);
   }
