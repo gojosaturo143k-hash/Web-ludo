@@ -1,4 +1,4 @@
-const ws = new WebSocket("ws://127.0.0.1:8765");
+const ws = new WebSocket("ws://10.117.14.150:8765");
 
 const player = prompt("Enter your name");
 const room = prompt("Room code");
