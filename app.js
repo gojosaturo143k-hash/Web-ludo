@@ -16,19 +16,21 @@ for (let i = 0; i <= 57; i++) {
   board.appendChild(cell);
 }
 
-/* 🎨 RENDER TOKENS */
+/* 🎨 RENDER TOKENS (SINGLE TOKEN PER PLAYER) */
 function render(positions) {
   // clear old tokens
   document.querySelectorAll(".token").forEach(t => t.remove());
 
   for (const p in positions) {
     const pos = positions[p];
+    if (pos < 0) continue;
+
     const cell = document.getElementById(`cell-${pos}`);
     if (!cell) continue;
 
     const token = document.createElement("div");
     token.className = "token";
-    token.title = p;
+    token.title = p; // hover name
     cell.appendChild(token);
   }
 }
