@@ -7,3 +7,54 @@ body {
 #game {
   margin-top: 30px;
 }
+
+/* 🔲 BOARD */
+#board {
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  gap: 5px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+/* ⬜ CELL */
+.cell {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #999;
+  background: #fff;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* 🔴 TOKEN */
+.token {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: red;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+/* 🎲 BUTTON */
+button {
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background: #4caf50;
+  color: white;
+}
+
+button:hover {
+  background: #43a047;
+}
+
+/* 🟡 STATUS TEXT */
+#status {
+  font-weight: bold;
+  margin-bottom: 10px;
+    }
