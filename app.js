@@ -1,4 +1,4 @@
-const ws = new WebSocket("wss://ido.onrender.com");
+const ws = new WebSocket("wss://web-ludo.onrender.com");
 
 const player = prompt("Enter your name");
 const room = prompt("Room code");
