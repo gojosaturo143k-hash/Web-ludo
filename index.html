@@ -1,18 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Ludo Game</title>
+  <meta charset="UTF-8">
+  <title>🎲 Ludo Game</title>
+
+  <!-- Optional CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f5f5f5;
+    }
+    #game {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #status {
+      margin: 15px 0;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
-  <h2>🎲 Ludo Game</h2>
+  <h2>🎲 Ludo Multiplayer Game</h2>
 
   <div id="game">
-    <p>Game loading...</p>
-    <button id="roll">Roll Dice</button>
+    <h3 id="status">Waiting for players...</h3>
+    <button id="roll">🎲 Roll Dice</button>
   </div>
 
+  <!-- JS -->
   <script src="app.js"></script>
 </body>
 </html>
